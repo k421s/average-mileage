@@ -1,5 +1,4 @@
 class Efficiency:
-    
     #mpg storage for each cars make
     data = { 
             "ford": [],
