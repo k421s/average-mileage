@@ -2,12 +2,16 @@
 #TODO refactor into something like "Economy"
 #TODO more vehicles in vehicles list
 #TODO empty and wrong make check functions
+#TODO make real function call with make in main function
+#TODO doc strings
 
 class Efficiency:
     data = { 
             "ford": [],
             "honda": [],
-            "nissan": []
+            "nissan": [],
+            "toyota": [],
+            "subaru": []
         }
     
     def __init__(self,brand,economy): 
@@ -49,9 +53,50 @@ def main():
         ),
         vehicle(
             make = "honda",
-            model = "crv",
-            mileage = 20
-        )
+            model = "element",
+            mileage = 15
+        ),
+        vehicle(
+            make = "honda",
+            model = "accord",
+            mileage = 40
+        ),
+        vehicle(
+            make = "nissan",
+            model = "maxima",
+            mileage = 33
+        ),
+        vehicle(
+            make = "nissan",
+            model = "altima",
+            mileage = 37
+        ),
+        vehicle(
+            make = "subaru",
+            model = "outback",
+            mileage = 17
+        ),
+        vehicle(
+            make = "subaru",
+            model = "crosstrek",
+            mileage = 22
+        ),
+        vehicle(
+            make = "toyota",
+            model = "camry",
+            mileage = 42
+        ),
+        vehicle(
+            make = "toyota",
+            model = "tacoma",
+            mileage = 17
+        ),
+        vehicle(
+            make = "toyota",
+            model = "corolla",
+            mileage = 43
+        ),
+        
     ]
 
     make = "ford"
