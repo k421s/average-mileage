@@ -4,6 +4,7 @@ Calculate average mileage of vehicle make given a list of objects and a make to 
 The way the original list of vehicles was set up reminded me of c structs so the program is written with the assumption that it was a struct type of object translated to python as a list of vehicle objects.
 
 ## main components 
+List of vehicle objects to calculate average mileage from
 ```python
 vehicles = [
         vehicle(
@@ -47,5 +48,6 @@ for example:
 `print(vehicles[0].average())` 
 would print: 
 > 29.666666666666668
+
 which is vehicle ones make, `"ford"`, average mpg.
 
