@@ -1,5 +1,9 @@
 #assuming list of initialized objects - object is outside of the function
 #TODO refactor into something like "Economy"
+#TODO more vehicles in vehicles list
+#TODO empty and wrong make check functions
+#TODO change names
+
 
 class mpg_aggregate:
     mpg_dict = { 
