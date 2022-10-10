@@ -1,5 +1,4 @@
 #assuming list of initialized objects - object is outside of the function
-#TODO refactor into something like "Economy"
 #TODO more vehicles in vehicles list
 #TODO empty and wrong make check functions
 #TODO make real function call with make in main function
@@ -14,18 +13,19 @@ class Efficiency:
             "subaru": []
         }
     
-    def __init__(self,brand,economy): 
+    def __init__(self,brand = None, economy = None): 
         self.brand = brand
         self.economy = economy
-        #now I need to load it into the class member
-        self.data[brand].append(economy)
+        #if init has args it's a component of vehicles
+        if brand is not None and economy is not None:
+            self.data[brand].append(economy)
     
     #calculate average mpg by pulling from 
     def average(self, brand):
         if brand in self.data:
             data = self.data[brand]
             return sum(data) / len(data)
-        else: return -1 #if vehicle make isnt in the dictionary
+        return -1 #if vehicle make isnt in the dictionary
 
 class vehicle: 
     #standard constructor
@@ -33,13 +33,16 @@ class vehicle:
         self.make = make
         self.model = model
         self.mileage = mileage
-        self.obj_mpg = Efficiency(make,mileage) #this lets us call average mpg for any initialized object with a make type
-
-    def make_average_mpg(self):
-        return self.obj_mpg.average(self.make)
+        self.fuel = Efficiency(make,mileage) #this lets us call average mpg for any initialized object with a make type
+    
+    #average for this vehicles make mpg
+    def average(self):
+        return self.fuel.average(self.make)
 #vehicles as a list of vehicle objects
 
 def main():
+    print((40 + 10 + 39) / 3)
+    efficiency = Efficiency()
     vehicles = [
         vehicle(
             make = "ford",
@@ -95,15 +98,20 @@ def main():
             make = "toyota",
             model = "corolla",
             mileage = 43
-        ),
-        
+        ),   
+        vehicle(
+            make = "ford",
+            model = "festiva",
+            mileage = 39
+        )
     ]
-
+    
+    #real related function call
     make = "ford"
-    print("hello")
+    print(efficiency.average(make))
 
     print(Efficiency.data)
-    print(vehicles[0].make_average_mpg())
+    print(vehicles[0].average())
 
 if __name__=='__main__':
     main() 
