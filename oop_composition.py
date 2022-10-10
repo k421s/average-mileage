@@ -1,10 +1,7 @@
 #assuming list of initialized objects - object is outside of the function
-#TODO more vehicles in vehicles list
-#TODO empty and wrong make check functions
-#TODO make real function call with make in main function
-#TODO doc strings
-
 class Efficiency:
+    
+    #mpg storage for each cars make
     data = { 
             "ford": [],
             "honda": [],
