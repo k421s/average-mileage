@@ -35,6 +35,47 @@ data = {
 It stores a list of every vehicle's mpg by make to be pulled from by the average calculating function 
 
 ## coupling
+There are two classes: Vehicle and Efficiency. 
+
+```python
+class Efficiency:
+    #mpg storage for each cars make
+    data = { 
+            "ford": [],
+            "honda": [],
+            "nissan": [],
+            "toyota": [],
+            "subaru": []
+        }
+    
+    #constructor builds and appends to data list if there are kwargs
+    def __init__(self,brand = None, economy = None): 
+        self.brand = brand
+        self.economy = economy
+        
+        #if there are no arguments it doesn't need to append to data 
+        if brand is not None and economy is not None:
+            self.data[brand].append(economy)
+    
+    #calculate average mileage stored in data dictionary
+    def average(self, brand):
+        if brand in self.data:
+            data = self.data[brand]
+            return sum(data) / len(data)
+        return -1 #if vehicle make isnt in the dictionary
+
+class vehicle: 
+    def __init__(self, make, model, mileage):
+        self.make = make
+        self.model = model
+        self.mileage = mileage
+        #calls efficiency class as a composite to store make and mileage in data dictionary
+        self.fuel = Efficiency(make,mileage)
+    
+    #average for this vehicles make mpg callable for each vehicle object
+    def average(self):
+        return self.fuel.average(self.make)
+```
 
 Instead of looping through the list every time an average needed to be calculated the mpg data is organized and stored in the `Efficiency` class every time a `Vehicle` is initialized. which is still a linear process but it will save time if multiple averages are calculated and makes more sense (to me).
 
